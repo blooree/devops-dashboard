@@ -1,0 +1,11 @@
+groups:
+  - name: dashboard_alerts
+    rules:
+      - alert: BackendDown
+        expr: up{job="dashboard-backend"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Dashboard backend is down"
+          description: "The Flask API has been unreachable for more than 1 minute."
