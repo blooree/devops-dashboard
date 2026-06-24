@@ -129,7 +129,7 @@ export default function App() {
       <header style={styles.header}>
         <div style={styles.headerLeft}>
           <span style={styles.title}>⚡ DevOps Dashboard</span>
-          <span style={styles.serverBadge}>YOUR_VDS_IP</span>
+          <span style={styles.serverBadge}>2.26.80.135</span>
         </div>
         <div style={styles.statusRow}>
           <div style={{ ...styles.dot, ...(online ? {} : styles.dotOffline) }} />

@@ -10,7 +10,7 @@ Real-time server monitoring dashboard with a fully automated CI/CD pipeline.
 Every push to `main` builds new Docker images, pushes them to Docker Hub, and
 redeploys the stack on your VDS — zero manual steps required.
 
-**Live demo:** http://YOUR_VDS_IP
+**Live demo:** http://2.26.80.135
 
 ---
 
@@ -141,7 +141,7 @@ Average pipeline time: ~3 minutes.
 
 | Secret | Value |
 |--------|-------|
-| `VDS_HOST` | Your server IP |
+| `VDS_HOST` | `2.26.80.135` |
 | `VDS_USER` | SSH username (`root`) |
 | `VDS_SSH_KEY` | Full content of `~/.ssh/id_rsa` |
 | `DOCKERHUB_USERNAME` | `blooree` |
