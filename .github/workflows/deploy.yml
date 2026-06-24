@@ -28,12 +28,14 @@ jobs:
 
       - name: Smoke-test backend import
         working-directory: backend
+        env:
+          SKIP_SCHEDULER: "1"
         run: python -c "from app import app; print('Backend import OK')"
 
       - name: Set up Node 20
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
           cache-dependency-path: frontend/package-lock.json
 

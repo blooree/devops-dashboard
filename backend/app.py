@@ -117,12 +117,17 @@ def register_deployment():
     return jsonify({"ok": True, "deployment": entry}), 201
 
 
-scheduler = BackgroundScheduler()
-scheduler.add_job(record_metrics, "interval", seconds=60)
-scheduler.start()
+def _start_scheduler():
+    """Called once by gunicorn/flask on real startup, skipped during import-only tests."""
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(record_metrics, "interval", seconds=60)
+    scheduler.start()
+    record_metrics()
 
-# Seed history on startup so the charts aren't empty
-record_metrics()
+
+# Only auto-start when actually serving; CI smoke tests import without DATA_DIR=/data
+if os.environ.get("SKIP_SCHEDULER") != "1":
+    _start_scheduler()
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=False)
