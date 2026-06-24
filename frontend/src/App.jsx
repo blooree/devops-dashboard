@@ -128,7 +128,7 @@ export default function App() {
 
       <header style={styles.header}>
         <div style={styles.headerLeft}>
-          <span style={styles.title}>⚡ DevOps Dashboard</span>
+          <span style={styles.title}>⚡ DevOps Dashboard v2</span>
           <span style={styles.serverBadge}>2.26.80.135</span>
         </div>
         <div style={styles.statusRow}>
